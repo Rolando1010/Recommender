@@ -52,9 +52,6 @@ Página de tecnología:
 * Componentizar el header y description del page recommender
 * Ver probable error de tildes
 * README
-* Loader
-* Terminar de mover todo
-
 
 ## Prueba de doble pantalla
 

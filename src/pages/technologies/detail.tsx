@@ -23,7 +23,7 @@ const TechnologyDetailPage = () => {
 }
 
 const TechnologyDetail = () => {
-    const [pageData, setPageData] = useState<({html: string} & RecommendationPage) | null>(null);
+    const [pageData, setPageData] = useState<RecommendationPage | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const  { name } = router.query;

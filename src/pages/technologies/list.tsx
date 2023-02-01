@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "src/styles/technologies.module.css";
+import type { RecommendationTechnology } from "src/utils/types";
 import useSearch from "src/hooks/use-search";
 import SearchForm from "src/components/search-form";
 import Title from "src/components/title";
@@ -25,7 +26,7 @@ const RecomendationTechnologiesContainer = ({ children }: { children: React.Reac
 
 const RecomendationTechnologiesPanel = () => {
     const search = useSearch();
-    const [technologies, setTechnologies] = useState<string[]>([]);
+    const [technologies, setTechnologies] = useState<RecommendationTechnology[]>([]);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -43,9 +44,12 @@ const RecomendationTechnologiesPanel = () => {
             placeholder="Que problema tienes?"
         />
         <ul className={styles.technologiesList}>
-            {technologies.map((technology, index) =>
+            {technologies.map(({ name, description }, index) =>
                 <li key={`technology-${index}`}>
-                    <Link href={`/tecnologias/${search}/${technology}`}>{technology}</Link>
+                    <Link href={`/tecnologias/${name}?search=${search}`}>
+                        <span className={styles.technologyName}>{name}{description && ": "}</span>
+                        {description}
+                    </Link>
                 </li>
             )}
         </ul>

@@ -1,3 +1,4 @@
+import type { RecommendationTechnology } from "src/utils/types";
 import { extractURLs } from "src/utils/urls";
 import { askAI, Model } from "./ai"
 import { getWebsiteData } from "./websites";
@@ -7,10 +8,22 @@ const getRecommendationTechnologies = async (search: string) => {
         Model.COMMAND_XLARGE_20221108,
         `what technologies should i use to ${search}?`
     );
-    console.log(text);
-    return text.split("\n").reduce((acc: string[], el) => {
-        if(el[0] === "-" && !acc.includes(el)){
-            return [...acc, el.slice(1)];
+    return text.split("\n").reduce((acc: RecommendationTechnology[], el) => {
+        let nameBeginPosition = 0;
+        const nameLastPosition = el.indexOf(":");
+        
+        if(el[0] === "-"){
+            nameBeginPosition = el.indexOf("-") + 2;
+        }
+        else if(el[0] !== " " && Number.isInteger(Number(el[0]))){
+            nameBeginPosition = el.indexOf(".") + 2;
+        } else return acc;
+        const newElement = {
+            name: el.slice(nameBeginPosition, nameLastPosition),
+            description: el.slice(nameLastPosition + 1)
+        };
+        if(newElement && !acc.some(rt => rt.name === newElement?.name)){
+            return [...acc, newElement];
         }
         return acc;
     }, []);

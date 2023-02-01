@@ -45,3 +45,8 @@
 .technologyPage a img{
     width: 30px;
 }
+
+.technologyName {
+    font-weight: bold;
+    color: var(--primary-1);
+}

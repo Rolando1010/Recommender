@@ -8,15 +8,18 @@ import EmptyResults from "src/components/empty-results";
 import PageIcon from "src/components/page-icon";
 import { getRecommendationPagesData } from "src/services/recommendation-pages";
 import Loading from "app/tecnologias/[search]/loading";
+import Layout from "src/layouts/main";
 
 const RecommendationPages = () => {
     return (<>
-        <Title>Recomendación de páginas</Title>
-        <SearchForm
-            label="Dame páginas dónde pueda"
-            placeholder="Qué buscas?"
-        />
-        <RecommendationPagesList/>
+        <Layout>
+            <Title>Recomendación de páginas</Title>
+            <SearchForm
+                label="Dame páginas dónde pueda"
+                placeholder="Qué buscas?"
+                />
+            <RecommendationPagesList/>
+        </Layout>
     </>);
 }
 

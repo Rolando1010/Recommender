@@ -4,6 +4,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 25px 0;
+    font-size: 32px;
 }
 
 .loaderContainer {

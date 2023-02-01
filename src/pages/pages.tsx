@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import Title from "src/components/title";
 import styles from "src/styles/pages.module.css";
 import type { RecommendationPage } from "src/utils/types";
 import useSearch from "src/hooks/use-search";
+import Title from "src/components/title";
 import SearchForm from "src/components/search-form";
 import EmptyResults from "src/components/empty-results";
 import PageIcon from "src/components/page-icon";
 import { getRecommendationPagesData } from "src/services/recommendation-pages";
+import Loading from "app/tecnologias/[search]/loading";
 
 const RecommendationPages = () => {
     return (<>
@@ -22,9 +23,16 @@ const RecommendationPages = () => {
 const RecommendationPagesList = () => {
     const search = useSearch();
     const [recommendationPages, setRecommendationPages] = useState<RecommendationPage[]>([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        getRecommendationPagesData(search).then(setRecommendationPages);
+        if(search){
+            setIsLoading(true);
+            getRecommendationPagesData(search).then(pagesData => {
+                setRecommendationPages(pagesData);
+                setIsLoading(false);
+            });
+        }
     }, [search]);
 
     return (<>
@@ -40,7 +48,8 @@ const RecommendationPagesList = () => {
                 </li>
             )}
         </ul>
-        <EmptyResults showable={search} results={recommendationPages}/>
+        <EmptyResults showable={search && !isLoading} results={recommendationPages}/>
+        {isLoading && <Loading/>}
     </>);
 }
 

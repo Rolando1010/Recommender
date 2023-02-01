@@ -5,7 +5,7 @@ import type { RecommendationPage } from "src/utils/types";
 import EmptyResults from "src/components/empty-results";
 import PageIcon from "src/components/page-icon";
 import RecomendationTechnologiesContainer from "./list";
-import Loading from "app/paginas/loading";
+import Loading from "src/components/loader";
 import { Gutter } from "src/components/gutters";
 import { getTechnologyPageData } from "src/services/recommendation-technologies";
 import { queryStringToString } from "src/utils/query";

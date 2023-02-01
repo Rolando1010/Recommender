@@ -1,0 +1,43 @@
+.navbar {
+    background-color: var(--background-2);
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--background-1);
+}
+
+.navbar img {
+    width: 40px;
+}
+
+.navbar h2 {
+    margin: 0;
+}
+
+.navbar section {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.navbar a {
+    color: var(--font-color-1);
+    text-decoration: none;
+}
+
+.navbar a:hover, .navbar a:focus {
+    text-decoration: underline;
+    color: var(--light-1);
+}
+
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+    }
+    
+    .navbar section {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,47 @@
+.technologiesList {
+    padding: 0;
+    list-style: none;
+    margin-top: 35px;
+    text-align: center;
+}
+
+.technologiesList li {
+    display: inline-flex;
+}
+
+.technologiesList a {
+    background-color: var(--background-2);
+    text-decoration: none;
+    color: var(--font-color-1);
+    padding: 20px 25px;
+    margin: 10px;
+    outline: none;
+}
+
+.technologiesList a:hover, .technologiesList a:focus {
+    box-shadow: var(--primary-1) 0px 1px 2px 0px, var(--primary-1) 0px 1px 3px 1px;
+}
+
+.technologyPageContainer {
+    background-color: var(--background-2);
+    height: 100vh;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.technologyPage header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--light-2);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.technologyPage img {
+    width: 70px;
+}
+
+.technologyPage a img{
+    width: 30px;
+}

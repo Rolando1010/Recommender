@@ -1,0 +1,1 @@
+export { Container as default} from "src/pages/technologies/technology-detail";

@@ -9,8 +9,8 @@ const Navbar = () => {
                 <h2>Recomendaciones</h2>
             </section>
             <section>
-                <Link href="/">Páginas</Link>
-                <Link href="/tecnologias/_">Tecnologías</Link>
+                <Link href="/paginas">Páginas</Link>
+                <Link href="/tecnologias">Tecnologías</Link>
             </section>
         </header>
     </>);

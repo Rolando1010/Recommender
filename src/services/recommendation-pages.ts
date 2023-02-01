@@ -1,6 +1,7 @@
 import { askAI, Model } from "./ai";
 import { extractURLs, isURL } from "src/utils/urls";
-import { scrapPage } from "./scraping";
+import requests from "src/utils/requests";
+import { RecommendationPage } from "src/utils/types";
 
 const getRecommendationUrls = async (search: string) => {
 	const text = await askAI(
@@ -16,7 +17,7 @@ const getRecommendationPagesData = async (search: string) => {
 	const urls = await getRecommendationUrls(search);
 	console.log("URLS:", urls);
 	const dataPages = (await Promise.all(urls.map(async url => {
-		const data = await scrapPage(url);
+		const data = await requests.get<{html: string} & RecommendationPage>(`/api/scraping?url=${url}`);
 		if(data) {
 			const { html, ...leftData } = data;
 			return leftData;

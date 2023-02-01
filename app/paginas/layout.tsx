@@ -1,5 +1,5 @@
 import Layout from "src/layouts/main";
-import SearchForm from "src/pages/pages/search-form";
+import SearchForm from "src/pages/_pages/search-form";
 
 const PagesLayout = ({ children, params }: {children: React.ReactNode, params: {search: string}}) => {
     const { search } = params;

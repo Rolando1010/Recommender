@@ -6,7 +6,7 @@ enum Model {
 }
 
 const askAI = async (model: Model, input: string) => {
-    cohere.init(process.env.COHERE_API_KEY || "");
+    cohere.init(process.env.NEXT_PUBLIC_COHERE_API_KEY || "");
 	const response = await cohere.generate({
 		model,
 		prompt: input,

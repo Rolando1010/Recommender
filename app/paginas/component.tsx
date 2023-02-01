@@ -1,1 +1,1 @@
-export { default } from "src/pages/pages/list";
+export { default } from "src/pages/_pages/list";

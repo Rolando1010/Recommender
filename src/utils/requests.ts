@@ -14,7 +14,7 @@ const request = <T, U>(method: Method, url: string, body: T | null): Promise<U> 
 }
 
 const requests = {
-    get: (url: string) => request(Method.GET, url, null),
+    get: <U>(url: string) => request<null, U>(Method.GET, url, null),
     post: <T, U>(url: string, body: T) => request<T, U>(Method.POST, url, body)
 }
 

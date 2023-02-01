@@ -1,16 +1,35 @@
 import { useEffect, useState } from "react";
-import type { RecommendationPage } from "src/utils/types";
+import Title from "src/components/title";
 import styles from "src/styles/pages.module.css";
+import type { RecommendationPage } from "src/utils/types";
+import useSearch from "src/hooks/use-search";
+import SearchForm from "src/components/search-form";
 import EmptyResults from "src/components/empty-results";
 import PageIcon from "src/components/page-icon";
+import { getRecommendationPagesData } from "src/services/recommendation-pages";
 
-const RecommendationPagesList = ({ search, pages }: {
-    search: string,
-    pages: RecommendationPage[]
-}) => {
+const RecommendationPages = () => {
+    return (<>
+        <Title>Recomendación de páginas</Title>
+        <SearchForm
+            label="Dame páginas dónde pueda"
+            placeholder="Qué buscas?"
+        />
+        <RecommendationPagesList/>
+    </>);
+}
+
+const RecommendationPagesList = () => {
+    const search = useSearch();
+    const [recommendationPages, setRecommendationPages] = useState<RecommendationPage[]>([]);
+
+    useEffect(() => {
+        getRecommendationPagesData(search).then(setRecommendationPages);
+    }, [search]);
+
     return (<>
         <ul className={styles.pagesList}>
-            {pages.map(({ title, description, icon, url }, index) => 
+            {recommendationPages.map(({ title, description, icon, url }, index) => 
                 <li key={`recommendation-page-${index}`}>
                     <RecommendationPageItem
                         title={title}
@@ -21,7 +40,7 @@ const RecommendationPagesList = ({ search, pages }: {
                 </li>
             )}
         </ul>
-        <EmptyResults showable={search} results={pages}/>
+        <EmptyResults showable={search} results={recommendationPages}/>
     </>);
 }
 
@@ -42,4 +61,4 @@ const RecommendationPageItem = ({ title, description, icon, url }: Recommendatio
     </>);
 }
 
-export default RecommendationPagesList;
+export default RecommendationPages;

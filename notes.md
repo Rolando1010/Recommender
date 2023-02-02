@@ -47,9 +47,11 @@ Página de tecnología:
 # Todo
 
 * Ver como quitar la carpeta de vscode
-* Componentizar el header y description del page recommender
 * README
 * Probarlo con el input de ejemplo en tecnologías de recomendación
+* Meter tests
+* Regenerar el form siempre que se vuelva a realizar submit
+* Meter ejemplos y detalle de respuesta
 
 ## Prueba de doble pantalla
 

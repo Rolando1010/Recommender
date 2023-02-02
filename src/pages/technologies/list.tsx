@@ -30,12 +30,17 @@ const RecomendationTechnologiesPanel = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        if(!search || recommendationTechnologies.length) return;
-        setIsLoading(true);
-        getRecommendationTechnologies(search).then(newRecommendationTechnologies => {
-            setRecommendationTechnologies(newRecommendationTechnologies);
-            setIsLoading(false); 
-        });
+        if(!search){
+            setRecommendationTechnologies([]);
+        } else if (recommendationTechnologies.length) {
+            return;
+        } else {
+            setIsLoading(true);
+            getRecommendationTechnologies(search).then(newRecommendationTechnologies => {
+                setRecommendationTechnologies(newRecommendationTechnologies);
+                setIsLoading(false); 
+            });
+        }
     }, [search]);
 
     return(<>

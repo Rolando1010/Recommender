@@ -3,12 +3,12 @@ import { useRouter } from "next/router";
 import styles from "src/styles/technologies.module.css";
 import type { RecommendationPage } from "src/utils/types";
 import EmptyResults from "src/components/empty-results";
-import PageIcon from "src/components/page-icon";
 import RecomendationTechnologiesContainer from "./list";
 import Loading from "src/components/loader";
 import { Gutter } from "src/components/gutters";
 import { getTechnologyPageData } from "src/services/recommendation-technologies";
 import { queryStringToString } from "src/utils/query";
+import RecommendationPageDetail from "src/components/recommendation-page-detail";
 
 const TechnologyDetailPage = () => {
     return (
@@ -40,14 +40,12 @@ const TechnologyDetail = () => {
     if(!pageData) return <EmptyResults showable={true} results={[]}/>
     return (
         <section className={styles.technologyPage}>
-            <header className={styles.technologyHead}>
-                <PageIcon src={pageData.icon} alt={pageData.description}/>
-                <h3>{pageData.title}</h3>
-                <a href={pageData.url} target="_blank">
-                    <img src="/link.svg" className={styles.link}/>
-                </a>
-            </header>
-            <p>{pageData.description}</p>
+            <RecommendationPageDetail
+                title={pageData.title}
+                description={pageData.description}
+                icon={pageData.icon}
+                url={pageData.url}
+            />
             <iframe
                 width="100%"
                 srcDoc={pageData.html}

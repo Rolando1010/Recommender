@@ -5,10 +5,10 @@ import useSearch from "src/hooks/use-search";
 import Title from "src/components/title";
 import SearchForm from "src/components/search-form";
 import EmptyResults from "src/components/empty-results";
-import PageIcon from "src/components/page-icon";
 import { getRecommendationPagesData } from "src/services/recommendation-pages";
 import Loading from "src/components/loader";
 import Layout from "src/layouts/main";
+import RecommendationPageDetail from "src/components/recommendation-page-detail";
 
 const RecommendationPages = () => {
     return (<>
@@ -42,7 +42,7 @@ const RecommendationPagesList = () => {
         <ul className={styles.pagesList}>
             {recommendationPages.map(({ title, description, icon, url }, index) => 
                 <li key={`recommendation-page-${index}`}>
-                    <RecommendationPageItem
+                    <RecommendationPageDetail
                         title={title}
                         description={description}
                         icon={icon}
@@ -53,23 +53,6 @@ const RecommendationPagesList = () => {
         </ul>
         <EmptyResults showable={search && !isLoading} results={recommendationPages}/>
         {isLoading && <Loading/>}
-    </>);
-}
-
-const RecommendationPageItem = ({ title, description, icon, url }: RecommendationPage) => {
-    return(<>
-        <header>
-            <PageIcon src={icon} alt={description} className={styles.icon}/>
-            <h3>{title}</h3>
-            <a href={url} target="_blank">
-                <img src="/link.svg" alt={`link to ${title}`} className={styles.link}/>
-            </a>
-        </header>
-        {description ?
-            <p>{description}</p>
-        :
-            <p className={styles.noDescription}>Descripción no disponible</p>
-        }
     </>);
 }
 

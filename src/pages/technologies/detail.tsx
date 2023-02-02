@@ -7,7 +7,7 @@ import RecomendationTechnologiesContainer from "./list";
 import Loading from "src/components/loader";
 import { Gutter } from "src/components/gutters";
 import { getTechnologyPageData } from "src/services/recommendation-technologies";
-import { queryStringToString } from "src/utils/query";
+import { queryStringToString } from "src/utils/text";
 import RecommendationPageDetail from "src/components/recommendation-page-detail";
 
 const TechnologyDetailPage = () => {

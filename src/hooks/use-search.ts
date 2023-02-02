@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useRouter } from "next/router";
-import { queryStringToString } from "src/utils/query";
+import { queryStringToString } from "src/utils/text";
 
 const useSearch = () => {
     const router = useRouter();

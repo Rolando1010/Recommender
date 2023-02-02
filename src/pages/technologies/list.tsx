@@ -10,6 +10,9 @@ import Loading from "src/components/loader";
 import { Gutter, GutterContainer } from "src/components/gutters";
 import { getRecommendationTechnologies } from "src/services/recommendation-technologies";
 import useRecommendationTechnologies from "src/hooks/use-recommendation-technologies";
+import Examples from "src/components/examples";
+
+const LABEL = "Que tecnologías debería usar para";
 
 const RecomendationTechnologiesContainer = ({ children }: { children: React.ReactNode }) => {
     return(
@@ -26,30 +29,20 @@ const RecomendationTechnologiesContainer = ({ children }: { children: React.Reac
 
 const RecomendationTechnologiesPanel = () => {
     const search = useSearch();
-    const { recommendationTechnologies, setRecommendationTechnologies } = useRecommendationTechnologies();
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-        if(!search){
-            setRecommendationTechnologies([]);
-        } else if (recommendationTechnologies.length) {
-            return;
-        } else {
-            setIsLoading(true);
-            getRecommendationTechnologies(search).then(newRecommendationTechnologies => {
-                setRecommendationTechnologies(newRecommendationTechnologies);
-                setIsLoading(false); 
-            });
-        }
-    }, [search]);
+    const { recommendationTechnologies, isLoading } = useRecommendationTechnologies();
 
     return(<>
+        <Examples label={LABEL} examples={[
+            {text: "Crear aplicación de chat", url: "/tecnologias?search=Crear+aplicación+de+chat"},
+            {text: "Crear sitios web", url: "/tecnologias?search=Crear+sitios+web"}
+        ]}/>
         <Title>Recomendación de Tecnologías</Title>
         <SearchForm
-            label="Que tecnologías debería usar para"
+            label={LABEL}
             placeholder="Que problema tienes?"
             path="/tecnologias"
         />
+        {(search && isLoading) && <Loading/>}
         <ul className={styles.technologiesList}>
             {recommendationTechnologies.map(({ name, description }, index) =>
                 <li key={`technology-${index}`}>
@@ -61,7 +54,6 @@ const RecomendationTechnologiesPanel = () => {
             )}
         </ul>
         <EmptyResults showable={search && !isLoading} results={recommendationTechnologies}/>
-        {(search && isLoading) && <Loading/>}
     </>);
 }
 

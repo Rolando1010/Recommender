@@ -1,0 +1,76 @@
+.title {
+    margin: 15px 0 5px 0;
+    color: var(--font-color-1);
+    cursor: pointer;
+    padding-left: 20px;
+}
+
+.title:focus, .title:hover {
+    color: var(--primary-1);
+    text-decoration: underline;
+}
+
+.examplesContainer {
+    margin: 0 20px 15px 20px;
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.examplesContainer ul {
+    list-style: none;
+    border-radius: var(--border-radius);
+    background-color: var(--background-2);
+    margin: 0;
+    font-size: 18px;
+    padding: 0;
+    border: 1px solid var(--light-2);
+}
+
+.examplesContainer li {
+    color: var(--font-color-1);
+    border-bottom: 1px solid var(--light-2);
+    cursor: pointer;
+    word-break: break-all;
+}
+
+.examplesContainer li:hover,
+.examplesContainer li:focus {
+    background-color: var(--background-1);
+}
+
+.examplesContainer li:first-child:hover,
+.examplesContainer li:first-child:focus {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.examplesContainer li:last-child:hover,
+.examplesContainer li:last-child:focus {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.examplesContainer li:only-child:hover,
+.examplesContainer li:only-child:focus {
+    border-radius: var(--border-radius);
+}
+
+.examplesContainer li:last-child {
+    border-bottom: 1px solid transparent;
+}
+
+.examplesContainer a {
+    text-decoration: none;
+    color: var(--font-color-1);
+}
+
+.examplesContainer a div {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.examplesContainer a span {
+    font-weight: bold;
+    color: var(--light-2);
+}

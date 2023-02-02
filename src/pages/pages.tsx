@@ -9,13 +9,20 @@ import { getRecommendationPagesData } from "src/services/recommendation-pages";
 import Loading from "src/components/loader";
 import Layout from "src/layouts/main";
 import RecommendationPageDetail from "src/components/recommendation-page-detail";
+import Examples from "src/components/examples";
+
+const LABEL = "Dame páginas dónde pueda"
 
 const RecommendationPages = () => {
     return (<>
         <Layout>
+            <Examples label={LABEL} examples={[
+                {text: "aprender inglés", url: "/paginas?search=aprender+inglés"},
+                {text: "aprender a programar", url: "/paginas?search=aprender+a+programar"}
+            ]}/>
             <Title>Recomendación de páginas</Title>
             <SearchForm
-                label="Dame páginas dónde pueda"
+                label={LABEL}
                 placeholder="Qué buscas?"
                 />
             <RecommendationPagesList/>
@@ -39,6 +46,7 @@ const RecommendationPagesList = () => {
     }, [search]);
 
     return (<>
+        {isLoading && <Loading/>}
         <ul className={styles.pagesList}>
             {recommendationPages.map(({ title, description, icon, url }, index) => 
                 <li key={`recommendation-page-${index}`}>
@@ -52,7 +60,6 @@ const RecommendationPagesList = () => {
             )}
         </ul>
         <EmptyResults showable={search && !isLoading} results={recommendationPages}/>
-        {isLoading && <Loading/>}
     </>);
 }
 

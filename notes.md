@@ -48,9 +48,11 @@ Página de tecnología:
 
 * Ver como quitar la carpeta de vscode
 * README
-* Probarlo con el input de ejemplo en tecnologías de recomendación
 * Meter tests
 * Meter ejemplos y detalle de respuesta
+* Poner titulo de página no disponible
+* Cambiar el loader
+* Subir proyecto a discord
 
 ## Prueba de doble pantalla
 

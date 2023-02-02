@@ -46,12 +46,10 @@ Página de tecnología:
 
 # Todo
 
-* Ver porqué salen tantos resultados vacíos
-* Ver el tamaño del título de Recomendación de Tecnologías
 * Ver como quitar la carpeta de vscode
 * Componentizar el header y description del page recommender
-* Ver probable error de tildes
 * README
+* Probarlo con el input de ejemplo en tecnologías de recomendación
 
 ## Prueba de doble pantalla
 

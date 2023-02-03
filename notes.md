@@ -51,7 +51,6 @@ Página de tecnología:
 * Meter tests
 * Meter ejemplos y detalle de respuesta
 * Poner titulo de página no disponible
-* Cambiar el loader
 * Subir proyecto a discord
 
 ## Prueba de doble pantalla

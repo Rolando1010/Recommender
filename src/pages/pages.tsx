@@ -46,7 +46,7 @@ const RecommendationPagesList = () => {
     }, [search]);
 
     return (<>
-        {isLoading && <Loading/>}
+        {<Loading/>}
         <ul className={styles.pagesList}>
             {recommendationPages.map(({ title, description, icon, url }, index) => 
                 <li key={`recommendation-page-${index}`}>

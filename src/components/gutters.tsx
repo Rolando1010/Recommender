@@ -1,15 +1,30 @@
-import styles from "src/styles/components.module.css";
-
 const GutterContainer = ({ children }: { children: React.ReactNode }) => <>
-    <section className={styles.gutterContainer}>
+    <section>
         {children}
     </section>
+    <style jsx>{`
+        section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 800px){
+            section {
+                flex-direction: column;
+            }
+        }
+    `}</style>
 </>;
 
 const Gutter = ({ children }: { children: React.ReactNode }) => <>
-    <article className={styles.gutter}>
+    <article>
         {children}
     </article>
+    <style jsx>{`
+        article {
+            flex: 1;
+        }
+    `}</style>
 </>;
 
 export {

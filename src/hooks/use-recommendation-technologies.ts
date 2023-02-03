@@ -11,9 +11,14 @@ const useRecommendationTechnologies = () => {
     
     const recommendationTechnologies: RecommendationTechnology[] = globalState?.recommendationTechnologies || [];
     const oldSearch: string = globalState?.search || "";
+    const aiResponse: string = globalState?.aiResponse || "";
 
-    const setRecommendationTechnologies = (newRecommendationTechnologies: RecommendationTechnology[]) => {
-        setGlobalState({recommendationTechnologies: newRecommendationTechnologies, search});
+    const setRecommendationTechnologies = (newRecommendationTechnologies: RecommendationTechnology[], newAIResponse?: string) => {
+        setGlobalState({
+            recommendationTechnologies: newRecommendationTechnologies,
+            search,
+            aiResponse: newAIResponse || ""
+        });
     }
 
     useEffect(() => {
@@ -23,8 +28,11 @@ const useRecommendationTechnologies = () => {
             return 
         } else {
             setIsLoading(true);
-            getRecommendationTechnologies(search).then(newRecommendationTechnologies => {
-                setRecommendationTechnologies(newRecommendationTechnologies);
+            let newAIResponse = ""
+            getRecommendationTechnologies(search, recommendation => {
+                newAIResponse = recommendation;
+            }).then(newRecommendationTechnologies => {
+                setRecommendationTechnologies(newRecommendationTechnologies, newAIResponse);
                 setIsLoading(false); 
             });
         }
@@ -32,7 +40,8 @@ const useRecommendationTechnologies = () => {
 
     return {
         recommendationTechnologies,
-        isLoading
+        isLoading,
+        aiResponse
     }
 }
 

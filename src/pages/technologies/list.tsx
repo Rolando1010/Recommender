@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "src/styles/technologies.module.css";
 import useSearch from "src/hooks/use-search";
@@ -8,9 +7,9 @@ import EmptyResults from "src/components/empty-results";
 import Layout from "src/layouts/main";
 import Loading from "src/components/loader";
 import { Gutter, GutterContainer } from "src/components/gutters";
-import { getRecommendationTechnologies } from "src/services/recommendation-technologies";
 import useRecommendationTechnologies from "src/hooks/use-recommendation-technologies";
 import Examples from "src/components/examples";
+import TextDetail from "src/components/text-detail";
 
 const LABEL = "Que tecnologías debería usar para";
 
@@ -29,7 +28,7 @@ const RecomendationTechnologiesContainer = ({ children }: { children: React.Reac
 
 const RecomendationTechnologiesPanel = () => {
     const search = useSearch();
-    const { recommendationTechnologies, isLoading } = useRecommendationTechnologies();
+    const { recommendationTechnologies, isLoading, aiResponse } = useRecommendationTechnologies();
 
     return(<>
         <Examples label={LABEL} examples={[
@@ -42,6 +41,7 @@ const RecomendationTechnologiesPanel = () => {
             placeholder="Que problema tienes?"
             path="/tecnologias"
         />
+        <TextDetail text={aiResponse}/>
         {(search && isLoading) && <Loading/>}
         <ul className={styles.technologiesList}>
             {recommendationTechnologies.map(({ name, description }, index) =>

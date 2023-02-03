@@ -1,7 +1,6 @@
 .technologiesList {
     padding: 0;
     list-style: none;
-    margin-top: 35px;
     text-align: center;
 }
 
@@ -24,7 +23,8 @@
 
 .technologyPageContainer {
     background-color: var(--background-2);
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     padding: 10px 20px;
     box-sizing: border-box;
 }

@@ -1,6 +1,7 @@
 .search {
     background-color: var(--background-2);
     border-radius: var(--border-radius);
+    margin-bottom: 15px;
 }
 
 .search label {

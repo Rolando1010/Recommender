@@ -1,14 +1,13 @@
-import styles from "src/styles/button.module.css";
-
 const Button = ({ type, onClick, children }: {
     type: "primary" | "light",
     onClick: () => void,
     children: React.ReactNode
 }) => <>
-    <button className={styles.button}
-    >{children}</button>
+    <button onClick={onClick}>
+        {children}
+    </button>
     <style jsx>{`
-        .button {
+        button {
             background-color: var(--${type || "primary"}-1);
             color: var(--font-color-1);
             border: 0;
@@ -17,8 +16,8 @@ const Button = ({ type, onClick, children }: {
             cursor: pointer;
             font-size: 16px;
         }
-        .button:hover,
-        .button:focus {
+        button:hover,
+        button:focus {
             background-color: var(--${type || "primary"}-2);
         }
     `}</style>

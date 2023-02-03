@@ -20,7 +20,8 @@ const askAI = async (model: Model, input: string) => {
 		return_likelihoods: 'NONE'
 	});
 	const { text } = response.body.generations[0];
-    return text;
+    console.log("TEXT:", text);
+	return text;
 }
 
 export {

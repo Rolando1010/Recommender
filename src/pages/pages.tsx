@@ -10,6 +10,7 @@ import Loading from "src/components/loader";
 import Layout from "src/layouts/main";
 import RecommendationPageDetail from "src/components/recommendation-page-detail";
 import Examples from "src/components/examples";
+import TextDetail from "src/components/text-detail";
 
 const LABEL = "Dame páginas dónde pueda"
 
@@ -24,7 +25,7 @@ const RecommendationPages = () => {
             <SearchForm
                 label={LABEL}
                 placeholder="Qué buscas?"
-                />
+            />
             <RecommendationPagesList/>
         </Layout>
     </>);
@@ -34,11 +35,12 @@ const RecommendationPagesList = () => {
     const search = useSearch();
     const [recommendationPages, setRecommendationPages] = useState<RecommendationPage[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [iaResponse, setIaResponse] = useState("");
 
     useEffect(() => {
         if(search){
             setIsLoading(true);
-            getRecommendationPagesData(search).then(pagesData => {
+            getRecommendationPagesData(search, setIaResponse).then(pagesData => {
                 setRecommendationPages(pagesData);
                 setIsLoading(false);
             });
@@ -46,6 +48,7 @@ const RecommendationPagesList = () => {
     }, [search]);
 
     return (<>
+        <TextDetail text={iaResponse}/>
         {isLoading && <Loading/>}
         <ul className={styles.pagesList}>
             {recommendationPages.map(({ title, description, icon, url }, index) => 

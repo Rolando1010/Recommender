@@ -9,6 +9,7 @@ import { Gutter } from "src/components/gutters";
 import { getTechnologyPageData } from "src/services/recommendation-technologies";
 import { queryStringToString } from "src/utils/text";
 import RecommendationPageDetail from "src/components/recommendation-page-detail";
+import TextDetail from "src/components/text-detail";
 
 const TechnologyDetailPage = () => {
     return (
@@ -25,12 +26,13 @@ const TechnologyDetailPage = () => {
 const TechnologyDetail = () => {
     const [pageData, setPageData] = useState<RecommendationPage | null>(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [aiResponse, setAIResponse] = useState("");
     const router = useRouter();
     const  { name } = router.query;
 
     useEffect(() => {
         setIsLoading(true);
-        getTechnologyPageData(queryStringToString(name)).then(pageData => {
+        getTechnologyPageData(queryStringToString(name), setAIResponse).then(pageData => {
             setPageData(pageData);
             setIsLoading(false);
         });
@@ -38,7 +40,8 @@ const TechnologyDetail = () => {
 
     if(isLoading) return <Loading/>;
     if(!pageData) return <EmptyResults showable={true} results={[]}/>
-    return (
+    return (<>
+        <TextDetail text={aiResponse}/>
         <section className={styles.technologyPage}>
             <RecommendationPageDetail
                 title={pageData.title}
@@ -52,7 +55,7 @@ const TechnologyDetail = () => {
                 height="500px"
             ></iframe>
         </section>
-    );
+    </>);
 }
 
 export default TechnologyDetailPage;

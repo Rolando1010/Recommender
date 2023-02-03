@@ -5,7 +5,7 @@ const useGlobalState = () => {
     const { globalState, setGlobalState } = useContext(context) || {};
 
     const startGlobalState = async (externalSetGlobalState: (state: any) => void) => {
-        (setGlobalState || externalSetGlobalState)({ recommendationTechnologies: [], search: "" });
+        (setGlobalState || externalSetGlobalState)({ recommendationTechnologies: [], search: "", aiResponse: "" });
     }
 
     return {

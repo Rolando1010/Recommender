@@ -4,7 +4,7 @@ const Title = ({ children }: { children: string }) => {
         <style jsx>{`
             h1 {
                 text-align: center;
-                background: linear-gradient(to right, var(--primary-1) 0%, var(--light-1) 100%);
+                background: linear-gradient(to right, var(--primary-1) 0%, var(--light-3) 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 margin: 25px 0;

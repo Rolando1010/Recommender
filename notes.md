@@ -50,7 +50,6 @@ Página de tecnología:
 * README
 * Meter tests
 * Subir proyecto a discord
-* Colocar otro light un poco más oscuro
 * Poner respuesta de api en detalle de tecnología aunque no haya página
 
 ## Prueba de doble pantalla

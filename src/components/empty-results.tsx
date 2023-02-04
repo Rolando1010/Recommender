@@ -10,7 +10,7 @@ const EmptyResults = <T, U>({ showable, results }: { showable: T, results: U[] }
                 margin: 0;
                 text-align: center;
                 font-size: 22px;
-                color: var(--light-1);
+                color: var(--light-3);
             }
         `}</style>
     </>);

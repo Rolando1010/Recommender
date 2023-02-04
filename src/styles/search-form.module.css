@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     font-size: 20px;
-    color: var(--light-1);
+    color: var(--light-3);
 }
 
 .search input {

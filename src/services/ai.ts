@@ -19,6 +19,7 @@ const askAI = async (model: Model, input: string) => {
 		stop_sequences: ["--"],
 		return_likelihoods: 'NONE'
 	});
+	console.log("RESPONSE:", response);
 	const { message }: any = response.body;
 	if(message) throw new Error(message);
 	const { text } = response.body.generations[0];

@@ -6,7 +6,7 @@ import "src/styles/global.css";
 export default ({ Component, pageProps }: AppProps) => {
     return (<>
         <Head>
-            <title>Recomendador</title>
+            <title>Recommender</title>
             <link rel="icon" href="/icon.png"/>
             <meta content="IE=edge" httpEquiv="X-UA-Compatible"/>
         </Head>

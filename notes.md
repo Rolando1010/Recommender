@@ -47,9 +47,8 @@ Página de tecnología:
 # Todo
 
 * Ver como quitar la carpeta de vscode
-* README
 * Meter tests
-* Subir proyecto a discord
+* Quitar los console log
 
 ## Prueba de doble pantalla
 

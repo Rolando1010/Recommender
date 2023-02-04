@@ -11,7 +11,7 @@ const Button = ({ type, onClick, children }: {
             background-color: var(--${type || "primary"}-1);
             color: var(--font-color-1);
             border: 0;
-            padding: 15px 25px;
+            padding: 10px 20px;
             border-radius: var(--border-radius);
             cursor: pointer;
             font-size: 16px;

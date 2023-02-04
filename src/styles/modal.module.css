@@ -24,10 +24,10 @@
     color: var(--font-color-1);
     display: flex;
     justify-content: space-between;
-    padding: 20px 15px 15px 15px;
+    padding: 0 10px;
     border-bottom: 1px solid var(--background-2);
-    font-size: 24px;
     align-items: center;
+    font-size: 20px;
 }
 
 .modal header button {
@@ -35,11 +35,11 @@
     border-color: transparent;
     cursor: pointer;
     color: var(--font-color-1);
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .modal main {
-    padding: 20px;
+    padding: 10px 20px;
     box-sizing: border-box;
 }
 
@@ -47,7 +47,7 @@
     display: flex;
     justify-content: flex-end;
     margin-top: auto;
-    padding: 15px;
+    padding: 10px;
     border-top: 1px solid var(--background-2);
     gap: 15px;
 }

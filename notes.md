@@ -49,7 +49,6 @@ Página de tecnología:
 * Ver como quitar la carpeta de vscode
 * README
 * Meter tests
-* Poner titulo de página no disponible
 * Subir proyecto a discord
 * Colocar otro light un poco más oscuro
 * Poner respuesta de api en detalle de tecnología aunque no haya página

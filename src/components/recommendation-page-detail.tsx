@@ -7,7 +7,11 @@ const RecommendationPageDetail = ({ icon, description, title, url }: Recommendat
         <div className={styles.recommendationPage}>
             <header>
                 <PageIcon src={icon} alt={description}/>
-                <h3>{title}</h3>
+                {title ?
+                    <h3>{title}</h3>
+                :
+                    <h3 className={styles.noDescription}>Título no disponible</h3>
+                }
                 <a href={url} target="_blank">
                     <img src="/link.svg" alt={`link to ${title}`}/>
                 </a>

@@ -10,6 +10,7 @@ import { getTechnologyPageData } from "src/services/recommendation-technologies"
 import { queryStringToString } from "src/utils/text";
 import RecommendationPageDetail from "src/components/recommendation-page-detail";
 import TextDetail from "src/components/text-detail";
+import { errorToast } from "src/components/toast";
 
 const TechnologyDetailPage = () => {
     return (
@@ -29,32 +30,35 @@ const TechnologyDetail = () => {
     const [aiResponse, setAIResponse] = useState("");
     const router = useRouter();
     const  { name } = router.query;
-
+    
     useEffect(() => {
         setIsLoading(true);
-        getTechnologyPageData(queryStringToString(name), setAIResponse).then(pageData => {
-            setPageData(pageData);
-            setIsLoading(false);
-        });
+        getTechnologyPageData(queryStringToString(name), setAIResponse)
+            .then(pageData => setPageData(pageData))
+            .catch(error => errorToast(error.message))
+            .finally(() => setIsLoading(false));
     }, [name])
 
     if(isLoading) return <Loading/>;
-    if(!pageData) return <EmptyResults showable={true} results={[]}/>
     return (<>
         <TextDetail text={aiResponse}/>
-        <section className={styles.technologyPage}>
-            <RecommendationPageDetail
-                title={pageData.title}
-                description={pageData.description}
-                icon={pageData.icon}
-                url={pageData.url}
-            />
-            <iframe
-                width="100%"
-                srcDoc={pageData.html}
-                height="500px"
-            ></iframe>
-        </section>
+        {pageData ?
+            <section className={styles.technologyPage}>
+                <RecommendationPageDetail
+                    title={pageData.title}
+                    description={pageData.description}
+                    icon={pageData.icon}
+                    url={pageData.url}
+                />
+                <iframe
+                    width="100%"
+                    srcDoc={pageData.html}
+                    height="500px"
+                ></iframe>
+            </section>
+        :
+            <EmptyResults showable={true} results={[]}/>
+        }
     </>);
 }
 

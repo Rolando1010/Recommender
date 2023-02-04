@@ -11,6 +11,7 @@ import Layout from "src/layouts/main";
 import RecommendationPageDetail from "src/components/recommendation-page-detail";
 import Examples from "src/components/examples";
 import TextDetail from "src/components/text-detail";
+import { errorToast } from "src/components/toast";
 
 const LABEL = "Dame páginas dónde pueda"
 
@@ -40,10 +41,10 @@ const RecommendationPagesList = () => {
     useEffect(() => {
         if(search){
             setIsLoading(true);
-            getRecommendationPagesData(search, setIaResponse).then(pagesData => {
-                setRecommendationPages(pagesData);
-                setIsLoading(false);
-            });
+            getRecommendationPagesData(search, setIaResponse)
+                .then(pagesData => setRecommendationPages(pagesData))
+                .catch(error => errorToast(error.message))
+                .finally(() => setIsLoading(false));
         }
     }, [search]);
 

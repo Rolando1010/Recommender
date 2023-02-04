@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Navbar from "./navbar"
 import context from "src/utils/context";
 import useGlobalState from "src/hooks/use-global-state";
+import ToastContainer from "src/components/toast";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     const [globalState, setGlobalState] = useState<{ globalState: any, setGlobalState: any } | null>(null);
@@ -17,6 +18,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <Navbar/>
             {children}
         </context.Provider>
+        <ToastContainer/>
     </>);
 }
 

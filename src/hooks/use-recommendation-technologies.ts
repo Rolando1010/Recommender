@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { errorToast } from "src/components/toast";
 import { getRecommendationTechnologies } from "src/services/recommendation-technologies";
 import { RecommendationTechnology } from "src/utils/types";
 import useGlobalState from "./use-global-state";
@@ -31,10 +32,10 @@ const useRecommendationTechnologies = () => {
             let newAIResponse = ""
             getRecommendationTechnologies(search, recommendation => {
                 newAIResponse = recommendation;
-            }).then(newRecommendationTechnologies => {
-                setRecommendationTechnologies(newRecommendationTechnologies, newAIResponse);
-                setIsLoading(false); 
-            });
+            })
+                .then(rt => setRecommendationTechnologies(rt, newAIResponse))
+                .catch(error => errorToast(error.message))
+                .finally(() => setIsLoading(false));
         }
     }, [search]);
 

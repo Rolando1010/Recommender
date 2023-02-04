@@ -11,9 +11,7 @@ const TextDetail = ({ text }: { text: string }) => {
             <button onClick={() => modalRef.current.open()}>Ver respuesta de IA</button>
         </div>
         <Modal modalRef={modalRef} title="Respuesta de IA">
-            <p>
-                {text}
-            </p>
+            <p>{text.trim()}</p>
         </Modal>
         <style jsx>{`
             div {

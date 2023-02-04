@@ -50,7 +50,8 @@ Página de tecnología:
 * README
 * Meter tests
 * Subir proyecto a discord
-* Poner respuesta de api en detalle de tecnología aunque no haya página
+* Poner respuesta de ia en detalle de tecnología aunque no haya página
+* Poner catch a respuesta de servicios
 
 ## Prueba de doble pantalla
 

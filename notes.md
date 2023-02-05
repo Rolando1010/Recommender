@@ -47,8 +47,8 @@ Página de tecnología:
 # Todo
 
 * Ver como quitar la carpeta de vscode
-* Meter tests
 * Quitar los console log
+* Quitar tests-examples, vscode, playwright-report
 
 ## Prueba de doble pantalla
 

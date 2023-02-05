@@ -18,6 +18,7 @@ A través de inteligencia artificial y web scraping realiza recomendaciones de s
 * NextJS
 * Co:here
 * Cheerio
+* Playwright
 
 <br>
 
@@ -37,4 +38,14 @@ Se instalan dlas dependencias y se ejecuta el proyecto
 ```bash
 npm install
 npm run dev
+```
+
+Ejecutar los test
+```bash
+npm run test
+```
+
+Ejecutar los test paso a paso
+```bash
+npm run test:steps
 ```

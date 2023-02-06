@@ -16,7 +16,7 @@ const extractListFromText = (text: string) => {
         }
         const newElement = {
             name: el.slice(nameBeginPosition, nameLastPosition),
-            description: el.slice(nameLastPosition + 1)
+            description: el.slice(nameLastPosition + 1).trim()
         };
         if(
             newElement.name &&

@@ -37,3 +37,7 @@
     font-weight: bold;
     color: var(--primary-1);
 }
+
+.space {
+    margin: 20px 0;
+}

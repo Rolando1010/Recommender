@@ -56,9 +56,10 @@ const TechnologyDetail = () => {
                     height="500px"
                 ></iframe>
             </section>
-        :
+        : <>
+            <div className={styles.space}></div>
             <EmptyResults showable={true} results={[]}/>
-        }
+        </>}
     </>);
 }
 

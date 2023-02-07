@@ -36,14 +36,7 @@ const PageIcon = ({ src, alt, className }: {
         src={imgSrc}
         alt={alt}
         className={className || ""}
-        onError={() => {
-            // console.log(src,"|",(()=>{
-            //     const image = new Image();
-            //     image.src = imgSrc;
-            //     return image.height
-            // })());
-            setImgSrc("/question.png")
-        }}
+        onError={() => setImgSrc("/question.png")}
     />;
 }
 

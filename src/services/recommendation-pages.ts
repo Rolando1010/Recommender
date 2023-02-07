@@ -12,7 +12,6 @@ const getRecommendationPagesData = async (
 	);
 	onRecommendation(text);
 	const urls = text.split("\n").map(extractURLs).flat().filter(isURL);
-	console.log("URLS:", urls);
 	const dataPages = (await Promise.all(urls.map(async url => {
 		const data = await getWebsiteData(url);
 		if(data) {
@@ -21,7 +20,6 @@ const getRecommendationPagesData = async (
 		}
 		return data;
 	})));
-	console.log("DATA_PAGES:", dataPages);
 	const cleanDataPages = [];
 	for(const dp of dataPages){
 		if(dp) cleanDataPages.push(dp);

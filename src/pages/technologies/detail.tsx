@@ -42,6 +42,7 @@ const TechnologyDetail = () => {
     if(isLoading) return <Loading/>;
     return (<>
         <TextDetail text={aiResponse}/>
+        <div className={styles.space}></div>
         {pageData ?
             <section className={styles.technologyPage}>
                 <RecommendationPageDetail
@@ -56,10 +57,9 @@ const TechnologyDetail = () => {
                     height="500px"
                 ></iframe>
             </section>
-        : <>
-            <div className={styles.space}></div>
+        :
             <EmptyResults showable={true} results={[]}/>
-        </>}
+        }
     </>);
 }
 

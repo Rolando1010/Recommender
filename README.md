@@ -9,9 +9,10 @@ Esta aplicación fue creada para participar en la hackaton organizada por [midud
 A través de inteligencia artificial y web scraping realiza recomendaciones de sitios web y tecnologías al usuario en base aun problema ingresado.
 
 ### Funcionalidades:
-* Obtener una serie de páginas recomendadas para resolver una necesidad ingresada por el usuario
+* Obtener una serie de páginas recomendadas para resolver una necesidad ingresada por el usuario.
+* Solicitar una serie de tecnologías que puedan resolver un problema específicado.
+* Acceder a una página de referencia para una determinada tecnología.
 
-<hr>
 <br>
 
 ## Tecnologías

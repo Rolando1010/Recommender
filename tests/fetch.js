@@ -1,0 +1,5 @@
+fetch("https://recommender-ai.vercel.app/api/scraping?url=https://www.britishcouncil.org/learn")
+    // .then(data => data.json())
+    .then(console.log)
+    .catch(error => console.log("catch", error))
+    .finally(() => console.log("finally"))

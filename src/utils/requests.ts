@@ -4,12 +4,12 @@ enum Method {
 }
 
 const request = <T, U>(method: Method, url: string, body: T | null): Promise<U> => {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
         fetch(url, {
             method,
             body: body && JSON.stringify(body),
             headers: {"Content-Type": "application/json"}
-        }).then(response => response.json()).then(resolve);
+        }).then(response => response.json()).then(resolve).catch(reject);
     });
 }
 

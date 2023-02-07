@@ -6,7 +6,7 @@ const EmptyResults = <T, U>({ showable, results }: { showable: T, results: U[] }
             <span>No se encontraron resultados</span>
             <div className="tooltip">
                 <img src="/info.svg"/>
-                <span className="tooltip-text">Es probable que los enlaces ofrecidos por la IA no existieran o no estuvieran en un formato que permitiera leerlos.</span>
+                <span className="tooltip-text">Es probable que los enlaces ofrecidos por la IA no existieran o no estuvieran en un formato que permitiera leerlos, o que se durara mucho tiempo al analizar la página.</span>
             </div>
         </div>
         <style jsx>{`

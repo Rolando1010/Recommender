@@ -38,7 +38,7 @@ const RecomendationTechnologiesPanel = () => {
         <Title>Recomendación de Tecnologías</Title>
         <SearchForm
             label={LABEL}
-            placeholder="Que problema tienes?"
+            placeholder="Qué necesitas?"
             path="/tecnologias"
         />
         <TextDetail text={aiResponse}/>
